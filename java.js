@@ -16,24 +16,6 @@ let btnEnter = document.getElementById('btnEnter');
 let ul = document.getElementById('to-do')
 let text = document.getElementById('text');
 
-    let newLi = document.createElement('div');
-    newLi.className = 'li';
-
-    let checkMe = document.createElement('div');
-    checkMe.className = 'check-me';
-
-    let checkBox = document.createElement('input');
-    checkBox.setAttribute('type', 'checkbox');
-
-    let li = document.createElement('li');
-    li.className = 'list';
-    li.innerText = text.value;
-
-    checkMe.append(checkBox, li);
-    newLi.appendChild(checkMe);
-
-    console.log(newLi);
-
 
 btnEnter.addEventListener('click', () => {
     let newLi = document.createElement('div');
@@ -65,6 +47,17 @@ btnEnter.addEventListener('click', () => {
     newLi.appendChild(del);
 
     del.addEventListener('click', () => {
-        del.parentElement.style.display = 'none'
+        del.parentElement.style.display = 'none';
+    });
+
+    checkBox.addEventListener('click', () => {
+        if (!checkBox.checked) {
+            li.classList.remove('checked')
+            return false
+        }
+        else {
+            li.classList = 'checked'
+            return true
+        }
     })
 })
